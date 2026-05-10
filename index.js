@@ -8,11 +8,15 @@ const loaderContainer = document.querySelector('.loader-container');
 const notificationsContainer = document.querySelector('.notifications-container');
 
 const { showLoader, hideLoader } = loaderController(loaderContainer);
-
 productsContainer.addEventListener("loadingProductsStarted", showLoader);
 productsContainer.addEventListener("loadingProductsFinished", hideLoader);
 
 const { showNotification } = notificationController(notificationsContainer);
+
+productsContainer.addEventListener("productsLoadSuccessed", (e) => {
+    showNotification(e.detail.type, e.detail.message);
+})
+
 productsContainer.addEventListener("productsLoadFailed", (e) => {
     showNotification(e.detail.type, e.detail.message);
 

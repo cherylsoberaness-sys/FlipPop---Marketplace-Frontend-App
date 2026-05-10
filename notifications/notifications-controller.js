@@ -17,7 +17,7 @@ export const notificationController = (notificationsContainer) => {
 
         setTimeout(() => {
             newNotification.remove()
-        }, 3000);
+        }, 800);
     }
 
     return { 

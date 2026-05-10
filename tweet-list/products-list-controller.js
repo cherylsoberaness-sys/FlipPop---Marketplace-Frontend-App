@@ -19,6 +19,14 @@ export const productsListController = async (productsContainer) => {
 
         showProducts(products, productsContainer);
 
+        const loadSuccessEvent = new CustomEvent("productsLoadSuccessed", {
+            detail: {
+                message: "Carga de productos exitosa",
+                type: 'success'
+            }
+        })
+        productsContainer.dispatchEvent(loadSuccessEvent);
+
     } catch (error) {
         const productsFailedEvent = new CustomEvent("productsLoadFailed", {
             detail: {
