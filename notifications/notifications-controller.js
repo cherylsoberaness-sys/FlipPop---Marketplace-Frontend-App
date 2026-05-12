@@ -8,6 +8,8 @@ export const notificationController = (notificationsContainer) => {
         let notificationType = '';
         if(type === 'Error') {
             notificationType = 'alert alert-error';
+        } else if(type === 'empty') {
+            notificationType = 'alert alert-info';
         } else {
             notificationType = 'alert alert-success';
         }

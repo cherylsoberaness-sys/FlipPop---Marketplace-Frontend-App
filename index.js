@@ -13,6 +13,10 @@ productsContainer.addEventListener("loadingProductsFinished", hideLoader);
 
 const { showNotification } = notificationController(notificationsContainer);
 
+productsContainer.addEventListener("emptyProducts", (e) => {
+    showNotification(e.detail.type, e.detail.message);
+})
+
 productsContainer.addEventListener("productsLoadSuccessed", (e) => {
     showNotification(e.detail.type, e.detail.message);
 })

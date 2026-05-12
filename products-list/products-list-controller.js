@@ -14,8 +14,16 @@ export const productsListController = async (productsContainer) => {
         if (!products) {
             throw new Error('No fue posible cargar los productos');
         } else if (products.length === 0) {
-            throw new Error('No hay productos que mostrar');
+            const emptyProductsEvent = new CustomEvent("emptyProducts", {
+                detail: {
+                    message: "No hay productos que mostrar",
+                    type: 'empty'
+                }
+            })
+
+            productsContainer.dispatchEvent(emptyProductsEvent);
         }
+
 
         showProducts(products, productsContainer);
 
@@ -50,3 +58,4 @@ const showProducts = (products, productsContainer) => {
         productsContainer.appendChild(newProduct);
     })
 }
+
