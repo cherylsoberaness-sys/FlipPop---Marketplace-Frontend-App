@@ -6,11 +6,11 @@ export const notificationController = (notificationsContainer) => {
     const showNotification = (type, message) => {
         const newNotification = document.createElement('div');
         let notificationType = '';
-        if(type === 'Error') {
+        if(type === 'error') {
             notificationType = 'alert alert-error';
         } else if(type === 'empty') {
             notificationType = 'alert alert-info';
-        } else {
+        } else if (type === 'success') {
             notificationType = 'alert alert-success';
         }
         newNotification.className = notificationType;
@@ -19,7 +19,7 @@ export const notificationController = (notificationsContainer) => {
 
         setTimeout(() => {
             newNotification.remove()
-        }, 800);
+        }, 1000);
     }
 
     return { 

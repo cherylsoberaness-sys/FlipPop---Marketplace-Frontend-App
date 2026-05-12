@@ -1,4 +1,4 @@
-
+import { productDetailController } from "./product-detail/product-detail-controller.js";
 import { loaderController } from "./loader/loader-controller.js";
 import { notificationController } from "./notifications/notifications-controller.js";
 import { productsListController } from "./products-list/products-list-controller.js";
@@ -6,6 +6,7 @@ import { productsListController } from "./products-list/products-list-controller
 const productsContainer = document.querySelector('.products-container');
 const loaderContainer = document.querySelector('.loader-container');
 const notificationsContainer = document.querySelector('.notifications-container');
+
 
 const { showLoader, hideLoader } = loaderController(loaderContainer);
 productsContainer.addEventListener("loadingProductsStarted", showLoader);
@@ -26,5 +27,5 @@ productsContainer.addEventListener("productsLoadFailed", (e) => {
 
 });
 
-    
+
 productsListController(productsContainer);

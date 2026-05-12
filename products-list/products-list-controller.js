@@ -1,52 +1,32 @@
 import { getProducts } from "./products-list-model.js";
 import { buildProduct } from "./products-list-view.js";
+import { dispatchProductsEvent } from "../utils/dispatch-event.js";
 
 export const productsListController = async (productsContainer) => {
     productsContainer.innerHTML = '';
     try {
-        const productsLoading = new CustomEvent("loadingProductsStarted");
-        productsContainer.dispatchEvent(productsLoading);
+        
+        dispatchProductsEvent(productsContainer, 'loadingProductsStarted');
 
         const products = await getProducts();
 
         await new Promise(resolve => setTimeout(resolve, 2000));
 
-        if (!products) {
-            throw new Error('No fue posible cargar los productos');
-        } else if (products.length === 0) {
-            const emptyProductsEvent = new CustomEvent("emptyProducts", {
-                detail: {
-                    message: "No hay productos que mostrar",
-                    type: 'empty'
-                }
-            })
-
-            productsContainer.dispatchEvent(emptyProductsEvent);
+        if (products.length === 0) {
+            dispatchProductsEvent(productsContainer, 'emptyProducts', 'No hay productos que mostrar', 'empty')
+            return;
         }
 
 
         showProducts(products, productsContainer);
 
-        const loadSuccessEvent = new CustomEvent("productsLoadSuccessed", {
-            detail: {
-                message: "Carga de productos exitosa",
-                type: 'success'
-            }
-        })
-        productsContainer.dispatchEvent(loadSuccessEvent);
+        dispatchProductsEvent(productsContainer, "productsLoadSuccessed", 'Carga de productos exitosa', 'success')
 
     } catch (error) {
-        const productsFailedEvent = new CustomEvent("productsLoadFailed", {
-            detail: {
-                message: error.message,
-                type: error.name
-            }
-        })
-        productsContainer.dispatchEvent(productsFailedEvent);
+        dispatchProductsEvent(productsContainer, "productsLoadFailed", 'Error en la carga de productos', 'error');
         
     } finally {
-        const productsLoaded = new CustomEvent("loadingProductsFinished");
-        productsContainer.dispatchEvent(productsLoaded);
+        dispatchProductsEvent(productsContainer, "loadingProductsFinished");
     }
 
 }
@@ -58,4 +38,6 @@ const showProducts = (products, productsContainer) => {
         productsContainer.appendChild(newProduct);
     })
 }
+
+
 
