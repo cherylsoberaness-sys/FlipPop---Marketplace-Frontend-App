@@ -2,11 +2,12 @@ import { productDetailController } from "./product-detail/product-detail-control
 import { loaderController } from "./loader/loader-controller.js";
 import { notificationController } from "./notifications/notifications-controller.js";
 import { productsListController } from "./products-list/products-list-controller.js";
+import { sessionController } from "./session/session-controller.js";
 
 const productsContainer = document.querySelector('.products-container');
 const loaderContainer = document.querySelector('.loader-container');
 const notificationsContainer = document.querySelector('.notifications-container');
-
+const sessionContainer = document.querySelector('.session-container');
 
 const { showLoader, hideLoader } = loaderController(loaderContainer);
 productsContainer.addEventListener("loadingProductsStarted", showLoader);
@@ -28,4 +29,6 @@ productsContainer.addEventListener("productsLoadFailed", (e) => {
 });
 
 
+
+sessionController(sessionContainer);
 productsListController(productsContainer);

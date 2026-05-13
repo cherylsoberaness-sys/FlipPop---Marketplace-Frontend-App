@@ -1,0 +1,21 @@
+
+
+
+export const createUser = async (email, password) => {
+    const url = 'http://localhost:8001/auth/register'
+    const response = await fetch(url, {
+        method:  'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: email,
+            password
+        })
+
+    });
+    if(!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message);
+    }
+}

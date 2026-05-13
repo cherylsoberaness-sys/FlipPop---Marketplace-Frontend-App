@@ -1,4 +1,4 @@
-export function dispatchProductsEvent (container, name, message=null, type=null) {
+export function dispatchEvent (container, name, message=null, type=null) {
     const event = new CustomEvent(name, {   
         detail: {
             message: message,

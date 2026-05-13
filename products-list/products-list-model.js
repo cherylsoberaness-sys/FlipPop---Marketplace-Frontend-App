@@ -4,5 +4,5 @@ export const getProducts = async () => {
     const response = await fetch(url);
     const products = await response.json();
 
-    return products
+    return products;
 }
