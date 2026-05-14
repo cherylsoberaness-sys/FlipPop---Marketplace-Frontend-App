@@ -1,25 +1,27 @@
 import { loaderController } from "./loader/loader-controller.js";
+import { loginController } from "./login/login-controller.js";
 import { notificationController } from "./notifications/notifications-controller.js";
 import { signupController } from "./signUp/signUp-controller.js";
 
-const signupForm = document.querySelector('form');
-const notificationsContainer = document.querySelector('.notifications-container');
+
+
 const loaderContainer = document.querySelector('.loader-container');
+const notificationsContainer = document.querySelector('.notifications-container');
+const loginForm = document.querySelector('form');
 
 const { showLoader, hideLoader } = loaderController(loaderContainer);
 const { showNotification } = notificationController(notificationsContainer);
 
-signupForm.addEventListener('loadingSignUpStarted', showLoader);
-signupForm.addEventListener('loadingSignUpFinished', hideLoader);
+loginForm.addEventListener('loadingLoginStarted', showLoader);
+loginForm.addEventListener('loadingLoginFinished', hideLoader);
 
-
-signupForm.addEventListener('userCreated', (e) => {
+loginForm.addEventListener('loggedinUser', (e) => {
     showNotification(e.detail.type, e.detail.message);
-});
+})
 
-signupForm.addEventListener('userNotCreated', (e) => {
+loginForm.addEventListener('userNotLoggued', (e) => {
     showNotification(e.detail.type, e.detail.message);
-});
+})
 
 
-signupController(signupForm);
+loginController(loginForm);

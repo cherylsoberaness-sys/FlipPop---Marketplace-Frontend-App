@@ -1,4 +1,5 @@
 import { createUser } from "./signUp-model.js";
+import { dispatchEvent } from "../utils/dispatch-event.js";
 
 
 export const signupController = (signUpContainer) => {
@@ -29,25 +30,24 @@ export const signupController = (signUpContainer) => {
 
         if(!existErrors) {
             try {
+                dispatchEvent(signUpContainer, 'loadingSignUpStarted');
+
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
                 await createUser(email, password);
-                const userCreatedEvent = new CustomEvent('userCreated', {
-                    detail: {
-                        message: 'Te has registrado correctamente',
-                        type: 'success'
-                    }
-                })
-                signUpContainer.dispatchEvent(userCreatedEvent);
+
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                dispatchEvent(signUpContainer, 'userCreated', 'Te has registrado correctamente', 'success')
+                
                 setTimeout(() => {
                     window.location = '/';
                 }, 1500);
             } catch (error) {
-                const userNotCreatedEvent = new CustomEvent('userNotCreated', {
-                    detail: {
-                        message: error.message,
-                        type: 'error'
-                    }
-                })
-                signUpContainer.dispatchEvent(userNotCreatedEvent);
+
+                dispatchEvent(signUpContainer, 'userNotCreated', error.message, 'error')                
+            } finally {
+                dispatchEvent(signUpContainer, 'loadingSignUpFinished');
             }
         }
 

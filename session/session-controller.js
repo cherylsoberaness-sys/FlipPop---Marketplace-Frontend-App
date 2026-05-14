@@ -11,6 +11,11 @@ export const sessionController = async (sessionContainer) => {
     try {
         const { username }  = await getUser(token)
         sessionContainer.innerHTML = buildAuthenticatedSession(username);
+        const logoutButton = document.querySelector('button');
+        logoutButton.addEventListener('click', (e) => {
+            localStorage.removeItem('token');
+            sessionController(sessionContainer);
+        })
 
     } catch(error) {
 

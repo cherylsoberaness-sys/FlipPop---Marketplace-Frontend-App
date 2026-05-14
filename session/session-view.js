@@ -1,7 +1,7 @@
 export const buildAuthenticatedSession = (username) => { 
     return `
         <button>Logout</button>
-        <span>username</span>
+        <span>${username}</span>
     `
 }
 

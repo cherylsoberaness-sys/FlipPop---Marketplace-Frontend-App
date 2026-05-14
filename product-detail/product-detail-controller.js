@@ -1,5 +1,5 @@
 
-import { dispatchProductsEvent } from "../utils/dispatch-event.js";
+import { dispatchEvent } from "../utils/dispatch-event.js";
 import { getProduct } from "./product-detail-model.js";
 import { productDetailView } from "./product-detail-view.js";
 
@@ -10,7 +10,7 @@ export const productDetailController = async (productDetailContainer) => {
     const productId= searchParams.get("id");
     try {
 
-        dispatchProductsEvent(productDetailContainer, 'loadingProductsStarted')
+        dispatchEvent(productDetailContainer, 'loadingProductsStarted')
 
         const product = await getProduct(productId);
         
@@ -19,12 +19,12 @@ export const productDetailController = async (productDetailContainer) => {
         
         ShowProductDetail(product, productDetailContainer);
 
-        dispatchProductsEvent(productDetailContainer, "productsLoadSuccessed", "Carga de producto exitosa", 'success');
+        dispatchEvent(productDetailContainer, "productsLoadSuccessed", "Carga de producto exitosa", 'success');
 
     } catch (error){
-        dispatchProductsEvent(productDetailContainer, "productsLoadFailed", error.message, 'error');
+        dispatchEvent(productDetailContainer, "productsLoadFailed", error.message, 'error');
     } finally {
-        dispatchProductsEvent(productDetailContainer, "loadingProductsFinished");
+        dispatchEvent(productDetailContainer, "loadingProductsFinished");
     }
 }
 
