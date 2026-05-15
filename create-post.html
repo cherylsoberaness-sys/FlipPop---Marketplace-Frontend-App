@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/create-post.css">
+    <title>New post</title>
+</head>
+<body>
+
+    <section class="create-post-container">
+
+        <h1>Publicalo</h1>
+        
+        <div class="post-form-wrapper">
+            <form class="create-post-form" style="position: relative; width: 400px; margin: auto;">
+                <section class="loader-container"></section>
+                <section class="notifications-container"></section>
+                <div>
+                    <label for="image">Foto del producto:</label>
+                    <input type="file" class="file-input file-input-secondary" id="image" name="image" required>
+                </div>
+                <div>
+                    <label for="product-name">Nombre del producto:</label>
+                    <input type="text" id="product-name" name="product-name" required>
+                </div>
+                <div>
+                    <label for="product-description">Descripcion del producto:</label>
+                    <textarea id="product-description" name="product-description" minlength="6" required></textarea>
+                </div>
+                <div>
+                    <label for="product-name">Precio:</label>
+                    <input id="product-price" name="product-price" required>
+                </div>
+                <div>
+                    <label for="sale-buy">selecciona si es compra o venta:</label>
+                    <div class="type-container">   
+                        <label for="sale">
+                            <input type="radio" name="type" value="Sale"> 
+                            Sale
+                        </label>
+                        <label for="buy">
+                            <input type="radio" name="type" value="Buy"> 
+                         Buy
+                        </label>
+                    </div>
+                </div>
+                <button type="submit">Publicar producto</button>
+            </form>
+        </div>
+
+    </section>
+    <script type="module" src="create-post.js"></script>
+</body>
+</html>

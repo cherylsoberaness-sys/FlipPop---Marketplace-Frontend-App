@@ -1,8 +1,8 @@
-import { productDetailController } from "./product-detail/product-detail-controller.js";
 import { loaderController } from "./loader/loader-controller.js";
 import { notificationController } from "./notifications/notifications-controller.js";
 import { productsListController } from "./products-list/products-list-controller.js";
 import { sessionController } from "./session/session-controller.js";
+
 
 const productsContainer = document.querySelector('.products-container');
 const loaderContainer = document.querySelector('.loader-container');
@@ -27,6 +27,7 @@ productsContainer.addEventListener("productsLoadFailed", (e) => {
     showNotification(e.detail.type, e.detail.message);
 
 });
+
 
 
 
