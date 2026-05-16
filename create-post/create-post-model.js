@@ -1,9 +1,12 @@
 export const uploadImage = async (image) => {
-    const url = 'http://localhost:8001/upload'
+    const url = 'http://localhost:8000/upload'
     const token = localStorage.getItem('token');
-
+    console.log(token);
     const response = await fetch(url, {
         method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
         body: image
     })
 
@@ -16,7 +19,7 @@ export const uploadImage = async (image) => {
 }
 
 export const postProduct = async (product) => {
-    const url = 'http://localhost:8001/api/products';
+    const url = 'http://localhost:8000/api/products';
     const token = localStorage.getItem('token');
 
     const response = await fetch(url, {

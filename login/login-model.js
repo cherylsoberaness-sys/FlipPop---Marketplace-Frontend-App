@@ -1,7 +1,7 @@
 
 
 export const loginUser = async (email, password) => {
-    const url = 'http://localhost:8001/auth/login'
+    const url = 'http://localhost:8000/auth/login'
     const response = await fetch(url, {
         method: 'POST',
         headers: {

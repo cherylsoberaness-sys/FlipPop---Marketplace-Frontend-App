@@ -1,5 +1,5 @@
 export const getUser = async (token) =>  {
-    const url = `http://localhost:8001/auth/me`;
+    const url = `http://localhost:8000/auth/me`;
     const response = await fetch(url, {
         method: 'GET',
         headers: {

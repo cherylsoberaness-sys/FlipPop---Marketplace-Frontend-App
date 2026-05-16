@@ -14,3 +14,10 @@ export const productDetailView = (product) => {
     return productDetailContainer;
 
 }
+
+export const buildRemoveProductButton = () => {
+     const removeProductButton = document.createElement('button')
+     removeProductButton.textContent = 'Eliminar Producto'
+
+     return removeProductButton;
+}

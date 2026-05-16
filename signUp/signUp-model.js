@@ -2,7 +2,7 @@
 
 
 export const createUser = async (email, password) => {
-    const url = 'http://localhost:8001/auth/register'
+    const url = 'http://localhost:8000/auth/register'
     const response = await fetch(url, {
         method:  'POST',
         headers: {
