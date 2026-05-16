@@ -1,7 +1,7 @@
 export const buildAuthenticatedSession = (username) => { 
     return `
-        <button>Logout</button>
-        <a href="create-post.html">Nuevo post</a>
+        <button class="logout">Logout</button>
+        <a class="new-post" href="create-post.html">Nuevo post</a>
         <span>${username}</span>
         
     `
@@ -9,7 +9,7 @@ export const buildAuthenticatedSession = (username) => {
 
 export const buildUnathenticatedSession = () => {
     return `
-      <a href="/signup.html">Signup</a>
-      <a href="/login.html">login</a>
+      <a class="signup" href="/signup.html">Signup</a>
+      <a class="login" href="/login.html">login</a>
   `
 }

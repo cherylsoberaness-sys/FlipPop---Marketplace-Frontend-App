@@ -22,4 +22,16 @@ productDetailContainer.addEventListener("productsLoadFailed", (e) => {
 
 });
 
+productDetailContainer.addEventListener('deletingProductStarted', showLoader);
+productDetailContainer.addEventListener('deletingProductfinished', hideLoader);
+
+productDetailContainer.addEventListener('productDeleted', (e) => {
+    showNotification(e.detail.type, e.detail.message);
+})
+
+productDetailContainer.addEventListener('productNotDeleted', (e) => {
+    showNotification(e.detail.type, e.detail.message);
+})
+
+
 productDetailController(productDetailContainer);    

@@ -5,11 +5,16 @@ export const buildProduct = (product) => {
     productElement.setAttribute('href', `product.html?id=${product.id}`);
 
     productElement.innerHTML =  `
-                <img src="${product.image}" alt="${product.name}"> 
-                <h3>${product.name}</h1>
-                <p>->${product.type}</p> 
-                <p>${product.description}</p>
-                <p>${product.price}</p> 
+            <div class="product-image-container">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            
+            <div class="product-content-container">
+                <h3 class="title">${product.name}</h1>
+                <p class="type">${product.type}</p> 
+                <p class="description">${product.description}</p>
+                <p class="price">${product.price}</p>
+            </div>  
             `
     return productElement;
 

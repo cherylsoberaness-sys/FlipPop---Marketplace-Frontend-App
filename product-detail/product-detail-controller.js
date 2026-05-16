@@ -43,24 +43,35 @@ const ShowProductDetail = (product, productDetailContainer) => {
 } 
 
 
-const confirmRemoveProduct = async (producId) => {
-    const shouldRemove = window.confirm('¿Realmente quieres eliminar el tweet?');
+const confirmRemoveProduct = async (producId, productDetailContainer) => {
+    const shouldRemove = window.confirm('¿Realmente quieres eliminar el Producto?');
 
     if(shouldRemove){
         try {
-            await removeProduct(producId);
-            window.location = '/';
-        } catch (error){
+            dispatchEvent(productDetailContainer, 'deletingProductStarted');
+            await new Promise(resolve => setTimeout(resolve, 500));
 
+            await removeProduct(producId);
+
+            await new Promise(resolve => setTimeout(resolve, 500));
+            dispatchEvent(productDetailContainer, 'productDeleted', 'Producto eliminado', 'success')
+            setTimeout(() => {
+                window.location = '/';
+            }, 800);
+        } catch (error){
+            dispatchEvent(productDetailContainer, 'productNotDeleted', error.message, 'error');
+        } finally {
+            dispatchEvent(productDetailContainer, 'deletingProductfinished');
         }
     }
 }
 
 const handleRemoveProduct = (product, productDetailContainer) => {
     const removeProductButton = buildRemoveProductButton();
-    productDetailContainer.appendChild(removeProductButton);
+    const productCard = productDetailContainer.querySelector('.product-card-detail');
+    productCard.appendChild(removeProductButton);
     removeProductButton.addEventListener('click', (e) => {
-        confirmRemoveProduct(product.id);
+        confirmRemoveProduct(product.id, productDetailContainer);
     })
 }
 
