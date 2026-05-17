@@ -83,10 +83,16 @@ body {
     line-height: 2;
 }
 
-button {
+.edit-delete-btn {
+    display: flex;
+    flex-direction: row;
     position: absolute;
     top: 535px;
-    right: 40px;
+    right: 40px;    
+}
+
+.dlt-btn,
+.edit-btn {
     padding: 8px;
     border: 3px dashed rgb(67, 67, 67);
     border-radius: 8px;
@@ -95,7 +101,8 @@ button {
     transition: 0.2s ease;
 }
 
-button:hover {
+.dlt-btn:hover,
+.edit-btn:hover {
    background: #b1edf4; 
 }
 

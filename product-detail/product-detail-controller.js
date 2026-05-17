@@ -3,7 +3,7 @@ import { dispatchEvent } from "../utils/dispatch-event.js";
 import { getProduct } from "./product-detail-model.js";
 import { productDetailView } from "./product-detail-view.js";
 import { removeProduct } from "./product-detail-model.js";
-import { buildRemoveProductButton } from "./product-detail-view.js";
+import { buildRemoveProductButton, buildEditProductButton } from "./product-detail-view.js";
 
 
 export const productDetailController = async (productDetailContainer) => {
@@ -66,12 +66,22 @@ const confirmRemoveProduct = async (producId, productDetailContainer) => {
     }
 }
 
-const handleRemoveProduct = (product, productDetailContainer) => {
+
+
+
+const handleRemoveProduct = (product, productDetailContainer, productCard, buttonsContainer) => {
     const removeProductButton = buildRemoveProductButton();
-    const productCard = productDetailContainer.querySelector('.product-card-detail');
-    productCard.appendChild(removeProductButton);
+    buttonsContainer.appendChild(removeProductButton);
     removeProductButton.addEventListener('click', (e) => {
         confirmRemoveProduct(product.id, productDetailContainer);
+    });
+}
+
+const handleEditProduct = (product, productCard, buttonsContainer) => {
+    const editProductButton = buildEditProductButton();
+    buttonsContainer.appendChild(editProductButton);
+    editProductButton.addEventListener('click', (e) => {
+        window.location = `/create-post.html?id=${product.id}`;
     })
 }
 
@@ -82,8 +92,15 @@ const handleUserActions = async (product, productDetailContainer) => {
     if(token){
         try {
             const user = await getLoggedUser(token);
+
+            const productCard = productDetailContainer.querySelector('.product-card-detail');
+            const buttonsContainer = document.createElement('div');
+            productCard.appendChild(buttonsContainer);
+            buttonsContainer.classList.add('edit-delete-btn');
+
             if(user.id === Number(productUserId)) {
-                handleRemoveProduct(product, productDetailContainer);
+                handleRemoveProduct(product, productDetailContainer, productCard, buttonsContainer);
+                handleEditProduct(product, productCard, buttonsContainer);
             }
         } catch (error){
 

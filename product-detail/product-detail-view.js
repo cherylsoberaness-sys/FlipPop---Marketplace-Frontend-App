@@ -22,9 +22,19 @@ export const productDetailView = (product) => {
 
 }
 
+
 export const buildRemoveProductButton = () => {
      const removeProductButton = document.createElement('button')
+     removeProductButton.classList.add('dlt-btn');
      removeProductButton.textContent = 'Eliminar Producto'
 
      return removeProductButton;
+}
+
+export const buildEditProductButton = () => {
+    const editProductButton = document.createElement('button');
+    editProductButton.classList.add('edit-btn');
+    editProductButton.textContent = 'Editar Producto';
+
+    return editProductButton;
 }

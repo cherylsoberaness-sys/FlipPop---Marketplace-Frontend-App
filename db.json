@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "username": "pikachu@gmail.com",
+      "password": "$2b$10$bFXuShyR.hiE24322ut.pe4PHpKrMsgABBkPA9bIxYLgCFOayXLzm",
+      "id": 1
+    },
+    {
+      "username": "ed@gmail.com",
+      "password": "$2b$10$m0WD3f6TH5b9Y3KtgO1.0unuVg1FNMQbN/Cg32Yw5PwF8I.zL/7cm",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "image": "http://localhost:8000//file-1778966285512.jpeg",
+      "name": "Spinner clásico",
+      "description": "Busco spinners de este tipo",
+      "price": "$50",
+      "type": "Compra",
+      "userId": 1,
+      "updatedAt": "2026-05-16T21:18:05.515Z",
+      "id": 1
+    },
+    {
+      "image": "http://localhost:8000//file-1778966321928.jpeg",
+      "name": "Control gamer",
+      "description": "Control para pc y consolas",
+      "price": "$300",
+      "type": "Venta",
+      "userId": 1,
+      "updatedAt": "2026-05-16T21:18:41.932Z",
+      "id": 2
+    },
+    {
+      "image": "http://localhost:8000//file-1778966378514.jpeg",
+      "name": "Mouse",
+      "description": "Mouse gamer con botones personalizables",
+      "price": "$300",
+      "type": "Venta",
+      "userId": 1,
+      "updatedAt": "2026-05-16T21:19:38.517Z",
+      "id": 3
+    },
+    {
+      "image": "http://localhost:8000//file-1778966564446.png",
+      "name": "Nintendo Switch",
+      "description": "Busco Nintendo no importa el precio",
+      "price": "$8000",
+      "type": "Compra",
+      "userId": 1,
+      "updatedAt": "2026-05-16T21:22:44.449Z",
+      "id": 5
+    },
+    {
+      "image": "http://localhost:8000//file-1779049422360.jpeg",
+      "name": "Laptop Gamer",
+      "description": "Nitro AN515-55 RAM32 1TB",
+      "price": "$15000",
+      "type": "Venta",
+      "userId": 1,
+      "updatedAt": "2026-05-17T19:36:24.304Z",
+      "id": 6
+    }
+  ]
+}

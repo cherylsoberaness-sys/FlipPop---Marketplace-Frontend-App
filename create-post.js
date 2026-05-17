@@ -1,4 +1,5 @@
 import { createPostController } from "./create-post/create-post-controller.js";
+import { editProductController } from "./edit-product/edit-product-controller.js";
 import { loaderController } from "./loader/loader-controller.js";
 import { notificationController } from "./notifications/notifications-controller.js";
 
@@ -29,5 +30,24 @@ createPostContainer.addEventListener("createPostFailed", (e) => {
     showNotification(e.detail.type, e.detail.message);
 })
 
+createPostContainer.addEventListener('loadingProductStarted', showLoader);
+createPostContainer.addEventListener('loadingProductFinished', hideLoader);
 
-createPostController(createPostContainer);
+createPostContainer.addEventListener("productLoadSuccessed", (e) => {
+    showNotification(e.detail.type, e.detail.message);
+})
+
+createPostContainer.addEventListener("productLoadFailed", (e) => {
+    showNotification(e.detail.type, e.detail.message);
+})
+
+
+const searchParams = new URLSearchParams(window.location.search);
+const productId= searchParams.get("id");
+
+if(productId) {
+    editProductController(createPostContainer, productId);
+} else {
+    createPostController(createPostContainer);
+}
+
