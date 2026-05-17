@@ -1,8 +1,27 @@
 .notifications-container {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-    }
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
 
 
-   
+.notification {
+  border: solid 2px lightgrey;
+  border-radius: 8px;
+  padding: .8rem;
+  font-weight: bold;
+  color: rgb(206, 206, 206);
+}
+
+
+.notification.success {
+  background-color: #00912b;
+}
+
+.notification.error {
+  background-color: #af0000;
+}
+
+.notification.empty {
+  background-color: rgb(72, 72, 247);
+}
