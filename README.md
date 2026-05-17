@@ -1,6 +1,6 @@
 # FlipPop - clon de aplicación para compra y venta de productos
 
-Actiones que implementa FlipPop:
+Acciones que implementa FlipPop:
 
 - Publicar producto
 - Eliminar producto
