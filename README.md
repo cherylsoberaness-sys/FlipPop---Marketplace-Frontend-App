@@ -1,4 +1,4 @@
-# FlipPop - clon de una aplicacion para compra y venta de productos
+# FlipPop - clon de aplicación para compra y venta de productos
 
 Actiones que implementa FlipPop:
 
