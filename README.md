@@ -11,8 +11,8 @@ Acciones que implementa FlipPop:
 - Visualizar listado de productos
 - Visualizar detalle de producto
 
-Cada accion se hace atraves de peticiones a una API REST la cual solo permite realizar operaciones como PATCH/POST/DELETE 
-si el usuario esta registrado y logueado. Esas peticiones solo se logran si la peticion contiene el TOKEN JWT 
+Cada acción se hace através de peticiones a una API REST la cual solo permite realizar operaciones como PATCH/POST/DELETE 
+si el usuario esta registrado y logueado. Esas peticiones solo se logran si la petición contiene el TOKEN JWT 
 para su autenticación.
 
 ---
@@ -22,7 +22,7 @@ para su autenticación.
 Aprendizajes de frontend con javaScript:
 
 - Uso de API REST y peticiones
-- Manipulacion del DOM
+- Manipulación del DOM
 - Uso de arquitectura MVC
 
 ---
