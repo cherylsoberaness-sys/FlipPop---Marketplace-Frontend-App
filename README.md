@@ -11,7 +11,7 @@ Acciones que implementa FlipPop:
 - Visualizar listado de productos
 - Visualizar detalle de producto
 
-Cada acción se hace através de peticiones a una API REST la cual solo permite realizar operaciones como PATCH/POST/DELETE 
+Cada acción se hace a través de peticiones a una API REST la cual solo permite realizar operaciones como PATCH/POST/DELETE 
 si el usuario esta registrado y logueado. Esas peticiones solo se logran si la petición contiene el TOKEN JWT 
 para su autenticación.
 
