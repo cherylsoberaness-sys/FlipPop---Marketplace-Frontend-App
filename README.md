@@ -1,5 +1,7 @@
 # FlipPop - clon de aplicación para compra y venta de productos
 ![Vista de la app](./assets/Homepage.png)
+(Más imagenes del proyecto dentro de la carpeta de assets)
+
 Acciones que implementa FlipPop:
 
 - Publicar producto
