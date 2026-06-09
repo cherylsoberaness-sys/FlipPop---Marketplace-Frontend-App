@@ -29,8 +29,8 @@ Aprendizajes de frontend con javaScript:
 
 ## Detalles a mejorar
 
-- A la hora de publicar o editar un producto, si la imagen no se subió el formulario no permite que se suba la imagen
-por tanto habria que arreglar tal bloqueo.
+- A la hora de publicar o editar un producto, si la imagen no se subió el formulario no permite que se suba el post
+por tanto habria que ver la manera de arreglar tal bloqueo.
 - Refactorización de edición de producto junto con creación de producto, probablemente se puede hacer
 todo en un solo controlador y evitar duplicar código.
 - Implementar tags y buscador de productos.
